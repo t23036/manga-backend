@@ -20,7 +20,7 @@ app.add_middleware( #CORSの設定(異なるオリジン(場所)からのアク�
 
 @app.post("/search") #POSTリクエストで/searchにアクセスされたときの処理
 def search_users(item: Item): #リクエストボディをItemクラスとして受け取る
-    with sqlite3.connect('example2.db') as conn: #SQLiteデータベースの接続(自動で閉じる)
+    with sqlite3.connect('./example2.db') as conn: #SQLiteデータベースの接続(自動で閉じる)
         cursor = conn.cursor() #SQLを実行するためのカーソルを取得
 
         if item.query1: #query1に値がある場合(検索条件あり)
