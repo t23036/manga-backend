@@ -12,10 +12,7 @@ app = FastAPI() #FastAPIアプリケーションの初期化
 
 app.add_middleware( #CORSの設定(異なるオリジン(場所)からのアクセスを許可)これがないとセキュリティが危ないし、検索できない
     CORSMiddleware,
-    allow_origins=[ #許可するオリジン(Reactの開発環境など)
-        "http://localhost:3000",
-        "http://127.0.0.1:3000"
-    ],
+    allow_origins=["*"],
     allow_credentials=False, #認識情報を含めるかどうか(今回は含めない)
     allow_methods=["*"], #全てのHTTPメソッドの許可　なんで＊なのか説明できるようにしておく
     allow_headers=["*"], #全てのHTTPヘッダーの許可
